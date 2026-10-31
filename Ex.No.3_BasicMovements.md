@@ -42,3 +42,19 @@ public class TransformOperations : MonoBehaviour
         if (object2 != null)
         {
             //object2.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
+ ```
+### Output:
+
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/84aee92c-6c56-47b6-b415-584449c299c1" />
+
+
+
+
+
+
+### Result:
+Thus the basic movement is learned through scripting
+
+
+
