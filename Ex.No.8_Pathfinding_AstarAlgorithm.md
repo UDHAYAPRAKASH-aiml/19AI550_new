@@ -1,6 +1,6 @@
 # Ex.No: 8  Implementation of Path finding using A* algorithm
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE: 20/11/26                                                                  
+### REGISTER NUMBER : 212224240177
 ### AIM: 
 To write a program to create graph using waypoints and use A* algorithm to find path between source and destination.
 ### Algorithm:
@@ -18,61 +18,6 @@ To write a program to create graph using waypoints and use A* algorithm to find 
 ### Program:
 ```
 **#1.Waypoint.cs**
-using UnityEngine;
-using System.Collections.Generic;
-
-public class Waypoint : MonoBehaviour {
-    public List<Waypoint> neighbors = new List<Waypoint>();
-
-    // Optional: Draw connections in the editor
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.yellow;
-        foreach (var neighbor in neighbors) {
-            if (neighbor != null) {
-                Gizmos.DrawLine(transform.position, neighbor.transform.position);
-            }
-        }
-    }
-}
-**#2. WaypointGraph.cs**
-using UnityEngine;
-
-public class WaypointGraph : MonoBehaviour {
-    public Waypoint[] allWaypoints;
-
-    void Awake() {
-        allWaypoints = FindObjectsOfType<Waypoint>();
-    }
-}
-**#3.Pathfinding.cs**
-using System.Collections.Generic;
-using UnityEngine;
-public class Pathfinding : MonoBehaviour {
-    public static List<Waypoint> FindPath(Waypoint start, Waypoint goal) {
-        var openSet = new List<Waypoint>();
-        var cameFrom = new Dictionary<Waypoint, Waypoint>();
-        var gScore = new Dictionary<Waypoint, float>();
-        var fScore = new Dictionary<Waypoint, float>();
-
-        foreach (var wp in FindObjectsOfType<Waypoint>()) {
-            gScore[wp] = float.PositiveInfinity;
-            fScore[wp] = float.PositiveInfinity;
-        }
-
-        gScore[start] = 0f;
-        fScore[start] = Vector3.Distance(start.transform.position, goal.transform.position);
-        openSet.Add(start);
-
-        while (openSet.Count > 0) {
-            Waypoint current = openSet[0];
-            foreach (var wp in openSet) {
-                if (fScore[wp] < fScore[current]) {
-                    current = wp;
-                }
-            }
-
-            if (current == goal) {
-                return ReconstructPath(cameFrom, current);
             }
 
             openSet.Remove(current);
@@ -136,15 +81,12 @@ Check the following
 2. Neighbors set manually via Inspector
 3. WaypointGraph script on a manager
 4. AICharacter assigned a start and goal
+```
 ### Output:
-
-
-
-
-
-
-
+<img width="1902" height="1077" alt="image" src="https://github.com/user-attachments/assets/1e7a23f5-b158-41c5-9fb3-02d2c5248c3c" />
+<img width="987" height="625" alt="image" src="https://github.com/user-attachments/assets/c53bdaad-99b6-45c8-a40d-189d1aa9680c" />
 
 
 ### Result:
 Thus the pathfinding algorithm was sucessfully implemented.
+
